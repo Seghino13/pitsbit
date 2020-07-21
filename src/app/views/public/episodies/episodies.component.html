@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row pd">
+       
+        <div class="col-md-3" *ngFor="let char of episodies">
+            <div class="card">
+               
+                <h4>{{ char.name }} </h4>
+                <p><strong>Fecha de lanzamiento:</strong> {{ char.air_date}}</p>
+                <p><strong>Código:</strong> {{ char.episode }}</p>
+                
+            </div>
+        </div>
+
+        <div class="col-md-12 text-right" *ngIf="info">
+            Mostrando {{ episodies.length }} de {{ info.count }} resultados
+        </div>
+       
+        <div class="col-md-12 text-center pag" *ngIf="info && episodies.length < info.count">
+            <button type="button" class="btn btn-outline-primary" (click)="getCharacthersRest( page + 1)">Mostrar más resultados</button>
+        </div>
+    </div>
+</div>

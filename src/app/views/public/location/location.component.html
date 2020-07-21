@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row pd">
+       
+        <div class="col-md-3" *ngFor="let char of locations">
+            <div class="card">
+               
+                <h4>{{ char.name }} </h4>
+                <p><strong>Tipo:</strong> {{ char.type}}</p>
+                <p><strong>Dimensión:</strong> {{ char.dimension }}</p>
+                
+            </div>
+        </div>
+
+        <div class="col-md-12 text-right" *ngIf="info">
+            Mostrando {{ locations.length }} de {{ info.count }} resultados
+        </div>
+       
+        <div class="col-md-12 text-center pag" *ngIf="info && locations.length < info.count">
+            <button type="button" class="btn btn-outline-primary" (click)="getCharacthersRest( page + 1)">Mostrar más resultados</button>
+        </div>
+    </div>
+</div>

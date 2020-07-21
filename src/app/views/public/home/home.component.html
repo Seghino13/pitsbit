@@ -1,0 +1,23 @@
+<div class="container">
+    
+    <div class="row">
+        <div class="col-md-3" *ngFor="let char of characteres">
+            <div class="card">
+                <div [ngStyle]="{'background-image': 'url('+ char.image +')'}" class="img-head"></div>
+                <h4>{{ char.name }} </h4>
+                <p><strong>Especie:</strong> {{ char.species}}</p>
+                <p><strong>Género:</strong> {{ char.gender === 'Male' || char.gender === 'Female' ? char.gender : 'Desconocido'}}</p>
+                <p><strong>Ubicación:</strong> {{ char.location.name }}</p>
+                <div class="badges">Estado: {{ char.status }}</div>
+            </div>
+        </div>
+
+        <div class="col-md-12 text-right" *ngIf="info">
+            Mostrando {{ characteres.length }} de {{ info.count }} resultados
+        </div>
+       
+        <div class="col-md-12 text-center pag"  *ngIf="info && characteres.length < info.count">
+            <button type="button" class="btn btn-outline-primary" (click)="getCharacthersRest( page + 1)">Mostrar más resultados</button>
+        </div>
+    </div>
+</div>
